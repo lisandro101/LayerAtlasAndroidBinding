@@ -1,0 +1,90 @@
+<metadata>
+
+    <!-- Fix for FxDG naming violation: Type name matches namespace part -->
+    <attr path="/api/package[@name='com.layer.atlas.util']/class[@name='Util']" name="managedName">AtlasUtil</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.location']/class[@name='LocationCellFactory.Location']" name="managedName">CellFactoryLocation</attr>
+
+    <!-- Fix for subtype that extends a supertype but does not do so to form a public contract, ie. can be excluded to avoid certain errors otherwise -->
+    <attr path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasConversationsAdapter']" name="extends">java.lang.Object</attr>
+    <attr path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasMessagesAdapter']" name="extends">java.lang.Object</attr>
+
+    <!-- Fix for private inner class containing a non-private types/members, ie. can be excluded -->
+    <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.AvailableConversationAdapter']" />
+    <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.AvailableConversationAdapter.ViewHolder']" />
+    <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.SavedState']" />
+    <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasMessageComposer.SavedState']" />
+
+    <!-- Fix for public member that gets skipped due to duplicating another existing (inherited) member -->
+    <attr path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAvatar']/field[@name='TAG']" name="managedName">TAG</attr>
+
+    <!-- Fix for missing methods due to exposed types not being defined as public in the original Java source -->
+    <add-node path="/api/package[@name='com.layer.atlas.messagetypes.location']/class[@name='LocationCellFactory']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="bindCellHolder" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="p0" type="com.layer.atlas.messagetypes.location.LocationCellFactory.CellHolder">
+            </parameter>
+            <parameter name="p1" type="com.layer.atlas.messagetypes.location.LocationCellFactory.Location">
+            </parameter>
+            <parameter name="p2" type="com.layer.sdk.messaging.Message">
+            </parameter>
+            <parameter name="p3" type="com.layer.atlas.messagetypes.AtlasCellFactory.CellHolderSpecs">
+            </parameter>
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="createCellHolder" native="false" return="com.layer.atlas.messagetypes.location.LocationCellFactory.CellHolder" static="false" synchronized="false" visibility="public">
+            <parameter name="p0" type="android.view.ViewGroup">
+            </parameter>
+            <parameter name="p1" type="boolean">
+            </parameter>
+            <parameter name="p2" type="android.view.LayoutInflater">
+            </parameter>
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="parseContent" native="false" return="com.layer.atlas.messagetypes.location.LocationCellFactory.Location" static="false" synchronized="false" visibility="public">
+            <parameter name="p0" type="com.layer.sdk.LayerClient">
+            </parameter>
+            <parameter name="p1" type="com.layer.atlas.provider.ParticipantProvider">
+            </parameter>
+            <parameter name="p2" type="com.layer.sdk.messaging.Message">
+            </parameter>
+        </method>
+    </add-node>
+    <add-node path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']">
+        <method abstract="false" deprecated="not deprecated" final="false" name="bindCellHolder" native="false" return="void" static="false" synchronized="false" visibility="public">
+            <parameter name="p0" type="com.layer.atlas.messagetypes.threepartimage.ThreePartImageCellFactory.CellHolder">
+            </parameter>
+            <parameter name="p1" type="com.layer.atlas.messagetypes.threepartimage.ThreePartImageCellFactory.Info">
+            </parameter>
+            <parameter name="p2" type="com.layer.sdk.messaging.Message">
+            </parameter>
+            <parameter name="p3" type="com.layer.atlas.messagetypes.AtlasCellFactory.CellHolderSpecs">
+            </parameter>
+        </method>
+        <method abstract="false" deprecated="not deprecated" final="false" name="createCellHolder" native="false" return="com.layer.atlas.messagetypes.threepartimage.ThreePartImageCellFactory.CellHolder" static="false" synchronized="false" visibility="public">
+            <parameter name="p0" type="android.view.ViewGroup">
+            </parameter>
+            <parameter name="p1" type="boolean">
+            </parameter>
+            <parameter name="p2" type="android.view.LayoutInflater">
+            </parameter>
+        </method>
+    </add-node>
+    
+    <!-- Fix for generics erasure on inherited methods, ie. rename those methods so we later can have the properly-named additions as forwarders -->
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.generic']/class[@name='GenericCellFactory']/method[@name='createCellHolder']" name="managedName">DoCreateCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.generic']/class[@name='GenericCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.generic']/class[@name='GenericCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.location']/class[@name='LocationCellFactory']/method[@name='createCellHolder']" name="managedName">DoCreateCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.location']/class[@name='LocationCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.location']/class[@name='LocationCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.singlepartimage']/class[@name='SinglePartImageCellFactory']/method[@name='createCellHolder']" name="managedName">DoCreateCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.singlepartimage']/class[@name='SinglePartImageCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.singlepartimage']/class[@name='SinglePartImageCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.text']/class[@name='TextCellFactory']/method[@name='createCellHolder']" name="managedName">DoCreateCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.text']/class[@name='TextCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.text']/class[@name='TextCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']/method[@name='createCellHolder']" name="managedName">DoCreateCellHolder</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
+    <attr path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
+
+    <!-- Fix for overloaded inherited methods with covariant parameter/return type causing duplicate definition, ie. remove the overloads -->
+    <remove-node path="/api/package[@name='com.layer.atlas.provider']/interface[@name='Participant']/method[@name='compareTo']" />
+
+</metadata>

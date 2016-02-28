@@ -1,0 +1,8 @@
+.vs/
+/packages
+/LayerAtlasBindingLib.Android/obj
+/LayerAtlasBindingLib.Android/bin
+/AtlasAndroidMessengerApp/obj
+/AtlasAndroidMessengerApp/bin
+*.user
+*.userprefs

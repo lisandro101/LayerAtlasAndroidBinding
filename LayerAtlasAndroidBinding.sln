@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerAtlasBindingLib.Android", "LayerAtlasBindingLib.Android\LayerAtlasBindingLib.Android.csproj", "{A23ED1FC-35B3-4473-B736-F773197F18D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerSdkBindingLib.Android", "..\LayerAndroidSDKBinding\LayerSdkBindingLib.Android\LayerSdkBindingLib.Android.csproj", "{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtlasAndroidMessengerApp", "AtlasAndroidMessengerApp\AtlasAndroidMessengerApp.csproj", "{96F719F4-BD46-4114-9A5A-860318154822}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android", "..\DavemorrisseyLabsSubsamplingScaleImageViewBinding\DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android\DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android.csproj", "{1B77F963-0764-4312-8CE6-7C292C3BE0D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A23ED1FC-35B3-4473-B736-F773197F18D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23ED1FC-35B3-4473-B736-F773197F18D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23ED1FC-35B3-4473-B736-F773197F18D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23ED1FC-35B3-4473-B736-F773197F18D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F719F4-BD46-4114-9A5A-860318154822}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1B77F963-0764-4312-8CE6-7C292C3BE0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B77F963-0764-4312-8CE6-7C292C3BE0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B77F963-0764-4312-8CE6-7C292C3BE0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B77F963-0764-4312-8CE6-7C292C3BE0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
