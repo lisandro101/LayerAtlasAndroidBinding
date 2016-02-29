@@ -24,9 +24,9 @@ namespace Com.Layer.Messenger.Flavor
             set { mAvatarUrl = value; }
         }
 
-        public int CompareTo(Java.Lang.Object another)
+        public int CompareTo(IParticipant another)
         {
-            return Name.ToUpperInvariant().CompareTo((another as IParticipant).Name.ToUpperInvariant());
+            return Name.ToUpperInvariant().CompareTo(another.Name.ToUpperInvariant());
         }
     }
 }

@@ -1,3 +1,5 @@
+// Fix for generics erasure on inherited methods, ie. add back the overriding methods as forwarders
+    
 using Android.Views;
 using Com.Layer.Atlas.Provider;
 using Com.Layer.Sdk;

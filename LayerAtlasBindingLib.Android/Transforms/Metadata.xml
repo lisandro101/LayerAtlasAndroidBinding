@@ -8,12 +8,18 @@
     <attr path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasConversationsAdapter']" name="extends">java.lang.Object</attr>
     <attr path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasMessagesAdapter']" name="extends">java.lang.Object</attr>
 
-    <!-- Fix for private inner class containing a non-private types/members, ie. can be excluded -->
+    <!-- Fix for private inner class containing non-private types/members, ie. can be excluded -->
     <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.AvailableConversationAdapter']" />
     <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.AvailableConversationAdapter.ViewHolder']" />
     <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAddressBar.SavedState']" />
     <remove-node path="/api/package[@name='com.layer.atlas']/class[@name='AtlasMessageComposer.SavedState']" />
 
+    <!-- Fix for non-public types that simply do not get exposed anywhere, ie. can be excluded to avoid certain errors otherwise -->
+    <remove-node path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasConversationsAdapter.ViewHolder']" />
+    <remove-node path="/api/package[@name='com.layer.atlas.adapters']/interface[@name='AtlasConversationsAdapter.ViewHolder.OnClickListener']" />
+    <remove-node path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasMessagesAdapter.ViewHolder']" />
+    <remove-node path="/api/package[@name='com.layer.atlas.adapters']/class[@name='AtlasMessagesAdapter.CellViewHolder']" />
+    
     <!-- Fix for public member that gets skipped due to duplicating another existing (inherited) member -->
     <attr path="/api/package[@name='com.layer.atlas']/class[@name='AtlasAvatar']/field[@name='TAG']" name="managedName">TAG</attr>
 
@@ -84,7 +90,7 @@
     <attr path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']/method[@name='parseContent']" name="managedName">DoParseContent</attr>
     <attr path="/api/package[@name='com.layer.atlas.messagetypes.threepartimage']/class[@name='ThreePartImageCellFactory']/method[@name='bindCellHolder']" name="managedName">DoBindCellHolder</attr>
 
-    <!-- Fix for overloaded inherited methods with covariant parameter/return type causing duplicate definition, ie. remove the overloads -->
-    <remove-node path="/api/package[@name='com.layer.atlas.provider']/interface[@name='Participant']/method[@name='compareTo']" />
+    <!-- Fix for overloaded inherited methods with covariant parameter/return type causing duplicate definition -->
+    <remove-node path="/api/package[@name='com.layer.atlas.provider']/interface[@name='Participant']/implements[@name='java.lang.Comparable']" />
 
 </metadata>
