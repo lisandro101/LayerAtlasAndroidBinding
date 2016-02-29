@@ -1,6 +1,6 @@
 # LayerAtlasAndroidBinding
 
-Xamarin.Android binding for the Layer Atlas library.
+Xamarin.Android binding for the Layer Atlas library. Also including C# port of the Atlas-Android-Messenger demo app.
 
 ## License
 
