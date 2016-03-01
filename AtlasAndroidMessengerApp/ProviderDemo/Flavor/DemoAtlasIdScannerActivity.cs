@@ -76,13 +76,13 @@ namespace Com.Layer.Messenger.Flavor
 
             public void OnLayerAppIdScanned(AppIdScanner scanner, string layerAppId)
             {
-                if (0 == Interlocked.CompareExchange(ref _activity.mFoundAppIdFlag, 1, 0)) return;
+                if (1 == Interlocked.CompareExchange(ref _activity.mFoundAppIdFlag, 1, 0)) return;
                 if (Util.Log.IsLoggable(Util.Log.VERBOSE))
                 {
                     Util.Log.v("Found App ID: " + layerAppId);
                 }
                 Flavor.SetLayerAppId(layerAppId);
-                Intent intent = new Intent(_activity, typeof(DemoAtlasIdScannerActivity));
+                Intent intent = new Intent(_activity, typeof(DemoLoginActivity));
                 intent.SetFlags(ActivityFlags.ClearTop | ActivityFlags.ClearTask | ActivityFlags.NewTask);
                 _activity.StartActivity(intent);
                 if (!_activity.IsFinishing) _activity.Finish();

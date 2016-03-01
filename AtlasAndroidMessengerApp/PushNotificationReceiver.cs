@@ -258,7 +258,7 @@ namespace Com.Layer.Messenger
                         JSONObject messageJson = messagesJson.GetJSONObject(messageId);
                         long position = messageJson.GetLong(KEY_POSITION);
                         string text = messageJson.GetString(KEY_TEXT);
-                        positionText.Add(position, text);
+                        positionText[position] = text;
                     }
                 } catch (JSONException e) {
                     if (Util.Log.IsLoggable(Util.Log.ERROR)) {
@@ -344,7 +344,9 @@ namespace Com.Layer.Messenger
 
                 IList<IQueryable> results = layerClient.ExecuteQueryForObjects(query);
                 if (results.Count == 0) return long.MinValue;
-                return ((IMessage) results[0]).Position;
+                var message = results[0] as IMessage;
+                if (message == null) return long.MinValue;
+                return message.Position;
             }
         }
     }

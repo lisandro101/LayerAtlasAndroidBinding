@@ -52,7 +52,7 @@ namespace Com.Layer.Messenger.Flavor
                 if (filter == null) {
                     foreach (var entry in mParticipantMap)
                     {
-                        result.Add(entry.Key, entry.Value);
+                        result[entry.Key] = entry.Value;
                     }
                     return result;
                 }
@@ -63,7 +63,7 @@ namespace Com.Layer.Messenger.Flavor
                     if (p.Name != null && p.Name.ToLowerInvariant().Contains(filter))
                         matches = true;
                     if (matches) {
-                        result.Add(p.Id, p);
+                        result[p.Id] = p;
                     } else {
                         result.Remove(p.Id);
                     }
@@ -74,7 +74,8 @@ namespace Com.Layer.Messenger.Flavor
 
         public IParticipant GetParticipant(string userId) {
             lock (mParticipantMap) {
-                DemoParticipant participant = mParticipantMap[userId];
+                DemoParticipant participant;
+                mParticipantMap.TryGetValue(userId, out participant);
                 if (participant != null) return participant;
                 FetchParticipants();
                 return null;
@@ -92,9 +93,9 @@ namespace Com.Layer.Messenger.Flavor
                     string participantId = participant.Id;
                     if (!mParticipantMap.ContainsKey(participantId))
                         newParticipantIds.Add(participantId);
-                    mParticipantMap.Add(participantId, participant);
+                    mParticipantMap[participantId] = participant;
                 }
-                save();
+                Save();
             }
             AlertParticipantsUpdated(newParticipantIds);
             return this;
@@ -115,7 +116,7 @@ namespace Com.Layer.Messenger.Flavor
 
                 try {
                     foreach (DemoParticipant participant in ParticipantsFromJson(new JSONArray(jsonString))) {
-                        mParticipantMap.Add(participant.Id, participant);
+                        mParticipantMap[participant.Id] = participant;
                     }
                     return true;
                 } catch (JSONException e) {
@@ -128,7 +129,7 @@ namespace Com.Layer.Messenger.Flavor
         /**
          * Saves the current map of participants to SharedPreferences
          */
-        private bool save() {
+        private bool Save() {
             lock (mParticipantMap) {
                 try {
                     mContext.GetSharedPreferences("participants", FileCreationMode.Private).Edit()
@@ -147,7 +148,7 @@ namespace Com.Layer.Messenger.Flavor
         // Network operations
         //==============================================================================================
         private DemoParticipantProvider FetchParticipants() {
-            if (0 == Interlocked.CompareExchange(ref mFetchingFlag, 1, 0)) return this;
+            if (1 == Interlocked.CompareExchange(ref mFetchingFlag, 1, 0)) return this;
             new FetchParticipantsAsyncTask(this).Execute();
             return this;
         }

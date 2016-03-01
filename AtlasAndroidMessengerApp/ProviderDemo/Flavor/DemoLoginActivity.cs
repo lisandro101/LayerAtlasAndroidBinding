@@ -59,7 +59,7 @@ namespace Com.Layer.Messenger.Flavor
             App.Authenticate(new DemoAuthenticationProvider.Credentials(App.GetLayerAppId(), name), new AuthenticationProviderCallback(this, name, progressDialog));
         }
 
-        private class AuthenticationProviderCallback : IAuthenticationProviderCallback
+        private class AuthenticationProviderCallback : IAuthenticationProviderCallback<DemoAuthenticationProvider.Credentials>
         {
             private DemoLoginActivity _activity;
             private string _name;
@@ -74,6 +74,11 @@ namespace Com.Layer.Messenger.Flavor
 
             public void OnSuccess(IAuthenticationProvider provider, string userId)
             {
+                OnSuccess(provider as IAuthenticationProvider<DemoAuthenticationProvider.Credentials>, userId);
+            }
+
+            public void OnSuccess(IAuthenticationProvider<DemoAuthenticationProvider.Credentials> provider, string userId)
+            {
                 _progressDialog.Dismiss();
                 if (Util.Log.IsLoggable(Util.Log.VERBOSE))
                 {
@@ -85,6 +90,11 @@ namespace Com.Layer.Messenger.Flavor
             }
 
             public void OnError(IAuthenticationProvider provider, string error)
+            {
+                OnError(provider as IAuthenticationProvider<DemoAuthenticationProvider.Credentials>, error);
+            }
+
+            public void OnError(IAuthenticationProvider<DemoAuthenticationProvider.Credentials> provider, string error)
             {
                 _progressDialog.Dismiss();
                 if (Util.Log.IsLoggable(Util.Log.ERROR))
