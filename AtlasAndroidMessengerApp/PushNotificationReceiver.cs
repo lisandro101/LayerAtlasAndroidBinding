@@ -8,6 +8,7 @@ using Com.Layer.Atlas.Util;
 using Com.Layer.Sdk;
 using Com.Layer.Sdk.Messaging;
 using Com.Layer.Sdk.Query;
+using Java.Interop;
 using Java.Util;
 using Org.Json;
 using System.Collections.Generic;
@@ -99,7 +100,8 @@ namespace Com.Layer.Messenger
                 {
                     Util.Log.v("Pre-fetched notification content");
                 }
-                GetNotifications(_context).Add(_context, (IMessage) obj, _text);
+                var message = obj.JavaCast<IMessage>();
+                GetNotifications(_context).Add(_context, message, _text);
             }
 
             public void OnContentFailed(LayerClient client, Uri objectId, string reason)
