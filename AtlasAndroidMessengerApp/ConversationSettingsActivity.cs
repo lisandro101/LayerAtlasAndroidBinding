@@ -223,7 +223,7 @@ namespace Com.Layer.Messenger
                     })
                     .SetNegativeButton(Resource.String.alert_button_cancel, (sender_, args_) => 
                     {
-                        (sender as IDialogInterface).Dismiss();
+                        ((IDialogInterface) sender_).Dismiss();
                     })
                     .Show();
                 };

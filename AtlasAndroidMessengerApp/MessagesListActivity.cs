@@ -19,6 +19,7 @@ using Com.Layer.Sdk.Messaging;
 using System.Collections.Generic;
 using Android.Widget;
 using Android.Views.InputMethods;
+using Java.Interop;
 
 namespace Com.Layer.Messenger
 {
@@ -332,11 +333,11 @@ namespace Com.Layer.Messenger
                     {
                         // TODO: simply update this one message
                         _activity.mMessagesList.GetAdapter().NotifyDataSetChanged();
-                        (sender as IDialogInterface).Dismiss();
+                        ((IDialogInterface) sender).Dismiss();
                     })
                     .SetPositiveButton(Resource.String.alert_button_delete, (sender, args) =>
                     {
-                        (message as IMessage).Delete(LayerClient.DeletionMode.AllParticipants);
+                        message.JavaCast<IMessage>().Delete(LayerClient.DeletionMode.AllParticipants);
 
                     }).Show();
             }

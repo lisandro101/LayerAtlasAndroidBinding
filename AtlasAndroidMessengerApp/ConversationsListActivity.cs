@@ -6,6 +6,7 @@ using Com.Layer.Atlas;
 using Com.Layer.Atlas.Adapters;
 using Com.Layer.Sdk;
 using Com.Layer.Sdk.Messaging;
+using Java.Interop;
 
 namespace Com.Layer.Messenger
 {
@@ -97,11 +98,11 @@ namespace Com.Layer.Messenger
                     {
                         // TODO: simply update this one conversation
                         _activity._conversationsList.GetAdapter().NotifyDataSetChanged();
-                        (sender as IDialogInterface).Dismiss();
+                        ((IDialogInterface) sender).Dismiss();
                     })
                     .SetPositiveButton(Resource.String.alert_button_delete, (sender, args) =>
                     {
-                        (conversation as Conversation).Delete(LayerClient.DeletionMode.AllParticipants);
+                        conversation.JavaCast<Conversation>().Delete(LayerClient.DeletionMode.AllParticipants);
                     })
                     .Show();
             }

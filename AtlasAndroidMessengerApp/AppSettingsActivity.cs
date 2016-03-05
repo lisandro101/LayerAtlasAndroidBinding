@@ -100,7 +100,7 @@ namespace Com.Layer.Messenger
                             if (Util.Log.IsLoggable(Util.Log.VERBOSE)) {
                                 Util.Log.v("Deauthenticating");
                             }
-                            (sender_ as IDialogInterface).Dismiss();
+                            ((IDialogInterface) sender_).Dismiss();
                             ProgressDialog progressDialog = new ProgressDialog(this);
                             progressDialog.SetMessage(Resources.GetString(Resource.String.alert_dialog_logout));
                             progressDialog.SetCancelable(false);
@@ -109,7 +109,7 @@ namespace Com.Layer.Messenger
                         })
                         .SetNegativeButton(Resource.String.alert_button_cancel, (sender_, args_) => 
                         {
-                            (sender_ as IDialogInterface).Dismiss();
+                            ((IDialogInterface) sender_).Dismiss();
                             SetEnabled(true);
                         })
                         .Show();
