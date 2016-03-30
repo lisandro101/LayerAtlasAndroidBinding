@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DaveMorrisseySubsamplingScaleImageViewBindingLib.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WiyonoAten.SubsamplingScaleImageView.Xamarin.Android.3.4.1\lib\MonoAndroid\DaveMorrisseySubsamplingScaleImageViewBindingLib.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LayerSdkBindingLib.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WiyonoAten.Layer.Sdk.Xamarin.Android.0.19.2\lib\MonoAndroid\LayerSdkBindingLib.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Square.OkHttp, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Square.OkHttp.2.4.0.0\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
@@ -107,16 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedReferenceJar Include="Jars\slf4j-nop-1.7.12.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DavemorrisseyLabsSubsamplingScaleImageViewBinding\DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android\DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android.csproj">
-      <Project>{1b77f963-0764-4312-8ce6-7c292c3be0d8}</Project>
-      <Name>DavemorrisseyLabsSubsamplingScaleImageViewBindingLib.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\LayerAndroidSDKBinding\LayerSdkBindingLib.Android\LayerSdkBindingLib.Android.csproj">
-      <Project>{912d5e8e-ee29-4504-b9cc-d370c5d7af42}</Project>
-      <Name>LayerSdkBindingLib.Android</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -37,6 +37,10 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LayerSdkBindingLib.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WiyonoAten.Layer.Sdk.Xamarin.Android.0.19.2\lib\MonoAndroid\LayerSdkBindingLib.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="Square.OkHttp, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -206,10 +210,6 @@
     <ProjectReference Include="..\LayerAtlasBindingLib.Android\LayerAtlasBindingLib.Android.csproj">
       <Project>{A23ED1FC-35B3-4473-B736-F773197F18D8}</Project>
       <Name>LayerAtlasBindingLib.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\LayerAndroidSDKBinding\LayerSdkBindingLib.Android\LayerSdkBindingLib.Android.csproj">
-      <Project>{912D5E8E-EE29-4504-B9CC-D370C5D7AF42}</Project>
-      <Name>LayerSdkBindingLib.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

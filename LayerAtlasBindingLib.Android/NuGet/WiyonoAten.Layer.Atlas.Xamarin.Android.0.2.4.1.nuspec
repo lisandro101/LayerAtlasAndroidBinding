@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>WiyonoAten.Layer.Atlas.Xamarin.Android</id>
-        <version>0.2.4</version>
+        <version>0.2.4.1</version>
         <title>Layer Atlas Binding for Xamarin.Android</title>
         <authors>Wiyono Aten</authors>
         <owners>wiyonoaten</owners>
@@ -14,6 +14,8 @@
             <dependency id="Square.OkHttp" version="2.4.0.0" />
             <dependency id="Square.OkIO" version="1.5.0.0" />
             <dependency id="Square.Picasso" version="2.5.2.1" />
+            <dependency id="WiyonoAten.Layer.Sdk.Xamarin.Android" version="0.19.2" />
+            <dependency id="WiyonoAten.SubsamplingScaleImageView.Xamarin.Android" version="3.4.1" />
             <dependency id="Xamarin.Android.Support.Design" version="23.1.1.0" />
             <dependency id="Xamarin.Android.Support.v4" version="23.1.1.0" />
             <dependency id="Xamarin.Android.Support.v7.AppCompat" version="23.1.1.0" />
@@ -22,7 +24,6 @@
             <dependency id="Xamarin.GooglePlayServices.Basement" version="27.0.0.0" />
             <dependency id="Xamarin.GooglePlayServices.Gcm" version="27.0.0.0" />
             <dependency id="Xamarin.GooglePlayServices.Location" version="27.0.0.0" />
-            <dependency id="WiyonoAten.SubsamplingScaleImageView.Xamarin.Android" version="3.4.1" />
         </dependencies>
     </metadata>
     <files>
