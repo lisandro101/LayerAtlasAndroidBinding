@@ -1,6 +1,13 @@
-# LayerAtlasAndroidBinding
+## LayerAtlasAndroidBinding
 
 Xamarin.Android binding for the Layer Atlas library. Also including C# port of the Atlas-Android-Messenger demo app.
+
+## Installation
+
+Package is available from NuGet. To install, run the following command in the Package Manager Console:
+```posh
+PM> Install-Package WiyonoAten.Layer.Atlas.Xamarin.Android
+```
 
 ## License
 
