@@ -9,6 +9,11 @@ Package is available from NuGet. To install, run the following command in the Pa
 PM> Install-Package WiyonoAten.Layer.Atlas.Xamarin.Android
 ```
 
+## Wish list
+
+* Use javadoc integration for the binding so that parameters are appropriately named.
+* Normalise the binding APIs (eg. InvokeXXX into properties, enums, etc).
+
 ## License
 
 Copyright 2013-2016 Wiyono Aten
