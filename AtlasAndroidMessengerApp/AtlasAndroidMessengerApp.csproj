@@ -49,9 +49,8 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LayerSdkBindingLib.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WiyonoAten.Layer.Sdk.Xamarin.Android.0.19.2\lib\MonoAndroid\LayerSdkBindingLib.Android.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="LayerSdkBindingLib.Android">
+      <HintPath>..\LayerAtlasBindingLib.Android\lib\LayerSdkBindingLib.Android.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
