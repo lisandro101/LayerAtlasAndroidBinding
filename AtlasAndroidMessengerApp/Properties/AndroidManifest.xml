@@ -47,5 +47,5 @@
 		<!-- Atlas Demo Identity Provider (QR Code) -->
 		<meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode" />
 	</application>
-	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21" />
 </manifest>
